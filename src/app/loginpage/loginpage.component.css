@@ -1,0 +1,10 @@
+.split{
+    width: 50%;
+    position: fixed;
+}
+.left{
+    left :0;
+}
+.right{
+    right:0;
+}

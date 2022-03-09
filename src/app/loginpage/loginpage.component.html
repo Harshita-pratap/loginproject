@@ -1,0 +1,104 @@
+<div class="container">
+    <form [formGroup]="userForm">
+      <div class="mt-5">
+        <div class="form-row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label > Name </label>
+            </div>
+            <div class="form-row">
+                <div class="col">
+                  <input type="text" formControlName="name" class="form-control" placeholder="name" (keydown)="requirement($event)">
+                </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label > College </label>
+            </div>
+            <div class="form-row">
+                <div class="col">
+                  <input type="text" formControlName="college" class="form-control" placeholder="college">
+                </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label > Degree </label>
+            </div>
+            <div class="form-row">
+                <div class="col">
+                    <div class ="custom-select">
+                        <select id ="degree" name="degree" 
+                        class="form-control"
+                        (change)="selectChangeHandler($event)" (keydown)="requirement($event)">
+                        
+                       
+                        <option value = "BTECH">B-TECH</option>
+                        <option value = "BSC">BSc</option>
+                        <option value = "BCA">BCA</option>
+                        <option value = "MCA">MCA</option>
+                        <option value = "MTECH">M-TECH</option>
+                       
+          
+                        </select>
+                       
+                    </div>
+                </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label > Specialization </label>
+            </div>
+            <div class="form-row">
+                <div class="col">
+                  <input type="text" formControlName="Specialization" class="form-control" placeholder="Specialization">
+                </div>
+            </div>
+          </div>
+          <br>
+          <div class="form-row mt-4">
+            <div class="col-md-6">
+              <button type="button" class="btn btn-primary" [disabled]="!checkValidity()"  (click)="addItem()">Save</button>
+              <br>
+              <br>
+
+              <button type="button" class="btn btn-primary" (click)="reset()">Cancel</button>
+              <br> <br>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+
+        <div class="col-md-8 mt-4 mb-4">
+      <table class="table table-bordered"  >
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>College</th>
+            <th>Degree</th>
+            <th>Specialization</th>
+  
+          </tr>
+        </thead>
+        <tbody>
+            <td>Harshita</td>
+            <td>Hamdard</td>
+            <td>B-Tech</td>
+            <td>Java</td>
+          <tr *ngFor = "let item of listData; ">
+            <td>{{item.name}}</td>
+            <td>{{item.college}}</td>
+          <td>{{selectedDegree}}</td>
+          <td>{{item.Specialization}}</td>
+         
+          </tr>
+        </tbody>
+      </table>
+        </div>
+        </div>
+    
+  
+  
